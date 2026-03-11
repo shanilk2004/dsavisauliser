@@ -6,7 +6,7 @@
 
 .array-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 6px;
@@ -14,7 +14,19 @@
     width: 100%;
 }
 
+.row {
+  display: flex;
+  gap: 20px;
+  height: 300px; /* Space for boxes to move up/down */
+  align-items: center;
+}
+
+.highlight {
+  background-color: #facc15 !important; /* Yellow glow when comparing */
+}
+
 .bar{
+    position: relative;
     color: chocolate;
     background-color: beige;
     width: 100px;
@@ -25,4 +37,48 @@
     margin-right: 4px;
     border-radius: 40px;
     font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    width: 250px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.move-right{
+    animation: clcwise 1s forwards;
+}
+
+.move-left{
+    animation: antclcwise 1s forwards;
+}
+
+@keyframes clcwise {
+    0% {transform: translate(0,0);}
+    33% {transform: translate(0,-100px);}
+    66% {transform: translate(124px,-100px);}
+    100% {transform: translate(124px,0);}
+}
+
+@keyframes antclcwise {
+    0% {transform: translate(0,0);}
+    33% {transform: translate(0,100px);}
+    66% {transform: translate(-124px,100px);}
+    100% {transform: translate(-124px,0);}
 }
